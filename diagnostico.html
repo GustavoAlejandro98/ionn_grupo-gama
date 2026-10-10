@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diagnóstico de Crecimiento IONN · IONN Growth Score™</title>
+<meta name="description" content="Descubre dónde están tus oportunidades de crecimiento. Analizamos marca, web, Google, redes sociales y nuevas formas de búsqueda, y te damos el resultado antes de pedirte un dato.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0F">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Descubre dónde están tus oportunidades de crecimiento.">
+<meta property="og:description" content="El IONN Growth Score analiza los puntos de contacto que tus clientes usan para encontrarte, conocerte y decidir.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="IONN Consulting">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/diagnostico.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://ionn-consulting.vercel.app/diagnostico#app",
+      "name": "Diagnóstico de Crecimiento IONN",
+      "alternateName": "IONN Growth Score",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es-MX",
+      "url": "https://ionn-consulting.vercel.app/diagnostico",
+      "description": "Herramienta gratuita que evalúa los puntos de contacto de un negocio — marca, web, Google, redes sociales y nuevas formas de búsqueda — y entrega el IONN Growth Score con sus tres principales oportunidades de crecimiento.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MXN"
+      },
+      "provider": {
+        "@id": "https://ionn-consulting.vercel.app/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ionn-consulting.vercel.app/diagnostico#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi página web no genera clientes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casi nunca es un problema de tráfico, es un problema de decisión. La gente entra, no entiende en diez segundos qué haces ni por qué tú, y se va."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo conseguir más clientes por internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Empezando por donde ya hay intención: qué encuentra, qué entiende y qué tan fácil le resulta dar el siguiente paso a quien ya te está buscando."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo aparecer en Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son dos trabajos distintos: tu ficha de negocio para quien te busca por nombre, y tu página para quien busca lo que vendes sin conocerte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo mejorar mi presencia digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Conectando lo que ya tienes antes de sumar nada nuevo: que marca, página, ficha de Google y redes cuenten la misma historia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo saber si mi página web funciona?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una página funciona cuando convierte interés en conversaciones. Si recibe visitas y no genera contactos, el problema está adentro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo mejorar mi marca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pregúntale a tres clientes qué dirían que haces, con sus palabras. Si las respuestas no coinciden, ahí está la brecha."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo saber qué está fallando en mi marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mirando tu negocio como lo ve alguien que no te conoce, en orden: cómo te encuentra, qué entiende, qué tan fácil le resulta contactarte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué debería mejorar primero en mi negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lo que esté más cerca de la decisión del cliente. Si ya te encuentran pero no te contactan, arregla lo que pasa cuando llegan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo puede la inteligencia artificial ayudar a mi negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hacia adentro, quitándote trabajo repetitivo. Hacia afuera, para que los sistemas que recomiendan negocios entiendan qué haces."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash__mark">IONN</div>
+</div>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<canvas class="signalfield" id="field" aria-hidden="true"></canvas>
+
+<header class="nav is-stuck" data-field-mode="system">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">IONN<span>Consulting</span></a>
+    <a class="link-arrow link-back" href="index.html" style="margin-left:auto">Volver a la página</a>
+  </div>
+</header>
+
+<div class="diag__progress" id="diagProgress" hidden>
+  <div class="wrap diag__progress-inner">
+    <span class="diag__step-label" id="diagStepLabel"></span>
+    <div class="diag__bar"><i></i></div>
+    <span class="diag__pct" id="diagPct">0%</span>
+  </div>
+</div>
+
+<main id="contenido" class="diag">
+
+<!-- ═══════ 01 · LA PROMESA ═══════ -->
+<section class="step is-active" data-step="intro">
+  <div class="wrap">
+
+    <div class="diag__intro">
+
+      <header class="step__head diag__hero">
+        <p class="eyebrow">Diagnóstico de crecimiento IONN</p>
+        <h1 class="diag__title">Descubre dónde están tus <em>oportunidades</em> de crecimiento.</h1>
+        <p class="diag__lead">Revisamos los cinco lugares donde tus clientes te encuentran, te conocen y deciden si acercarse.</p>
+        <p class="diag__link">Tu negocio ya está siendo evaluado. Veamos cómo.</p>
+      </header>
+
+      <aside class="diag__card">
+        <p class="diag__card-k">Lo que revisamos</p>
+        <ul class="diag__dims">
+          <li><b>Marca</b><span>Que te elijan</span></li>
+          <li><b>Web</b><span>Que te conozcan</span></li>
+          <li><b>Google</b><span>Que te encuentren</span></li>
+          <li><b>Redes sociales</b><span>Que te recuerden</span></li>
+          <li><b>Nuevas búsquedas</b><span>Que te recomienden</span></li>
+        </ul>
+
+        <button class="btn btn--primary btn--lg diag__start" type="button" data-goto="activos">Comenzar diagnóstico</button>
+
+        <ul class="diag__facts">
+          <li><b>3 minutos</b><span>Eso es todo lo que toma</span></li>
+          <li><b>Sin costo</b><span>Y sin registro para empezar</span></li>
+          <li><b>Resultado inmediato</b><span>Antes de pedirte un dato</span></li>
+        </ul>
+      </aside>
+
+    </div>
+
+    <section class="faq" id="faq">
+      <h2 class="faq__title">Lo que la gente nos pregunta antes de empezar</h2>
+
+      <div class="faq__item">
+        <h3>¿Por qué mi página web no genera clientes?</h3>
+        <p>Casi nunca es falta de visitas, es falta de claridad. La gente entra, no entiende en diez segundos qué haces ni por qué tú, y se va.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo conseguir más clientes por internet?</h3>
+        <p>Empieza por quien ya te está buscando: qué encuentra, qué entiende y qué tan fácil le resulta escribirte. Eso rinde antes que abrir un canal nuevo.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo aparecer en Google?</h3>
+        <p>Son dos trabajos. Tu ficha de negocio resuelve a quien te busca por nombre y da resultados en semanas. Tu página resuelve a quien busca lo que vendes sin conocerte, y toma meses.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo mejorar mi presencia digital?</h3>
+        <p>Conectando lo que ya tienes antes de sumar nada nuevo: que tu marca, tu página, tu Google y tus redes cuenten la misma historia.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo saber si mi página web funciona?</h3>
+        <p>Una página funciona cuando convierte interés en conversaciones. Si recibe visitas y no genera contactos, el problema está adentro.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo mejorar mi marca?</h3>
+        <p>Pregúntale a tres clientes qué dirían que haces, con sus palabras. Si las respuestas no coinciden, ahí está la brecha. Una marca no es el logo.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo saber qué está fallando en mi marketing?</h3>
+        <p>Mirando tu negocio como lo ve alguien que no te conoce, en orden: cómo te encuentra, qué entiende, qué tan fácil le resulta contactarte.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Qué debería mejorar primero en mi negocio?</h3>
+        <p>Lo que esté más cerca de la decisión. Si ya te encuentran pero no te contactan, arregla lo que pasa cuando llegan, no la visibilidad.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3>¿Cómo puede la inteligencia artificial ayudar a mi negocio?</h3>
+        <p>Hacia adentro, quitándote trabajo repetitivo. Hacia afuera, para que los sistemas que hoy recomiendan negocios entiendan qué haces.</p>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+
+<!-- ═══════ 02 · QUÉ TIENE TU NEGOCIO ═══════ -->
+<section class="step" data-step="activos">
+  <div class="wrap step__inner">
+
+    <header class="step__head">
+      <p class="eyebrow eyebrow--violet">Paso 1 de 2</p>
+      <h2 class="step__title">¿Dónde te pueden encontrar hoy?</h2>
+      <p class="step__lead">Marca todo lo que tenga tu negocio. No necesitas tenerlo todo.</p>
+    </header>
+
+    <div class="chips" role="group" aria-label="Canales de tu negocio">
+      <button class="chip" type="button" data-asset="web" aria-pressed="false">Página web</button>
+      <button class="chip" type="button" data-asset="instagram" aria-pressed="false">Instagram</button>
+      <button class="chip" type="button" data-asset="facebook" aria-pressed="false">Facebook</button>
+      <button class="chip" type="button" data-asset="linkedin" aria-pressed="false">LinkedIn</button>
+      <button class="chip" type="button" data-asset="tiktok" aria-pressed="false">TikTok</button>
+      <button class="chip" type="button" data-asset="google" aria-pressed="false">Ficha de Google</button>
+      <button class="chip" type="button" data-asset="marca" aria-pressed="false">Material de marca</button>
+      <button class="chip chip--alt" type="button" data-asset="nose" aria-pressed="false">No estoy seguro</button>
+    </div>
+
+    <p class="unsure" id="unsureNote" hidden>No pasa nada. Con el nombre de tu negocio y tu ciudad podemos empezar a rastrear dónde apareces.</p>
+
+    <div class="coverage">
+      <div class="coverage__head">
+        <span class="coverage__k">Qué tanto podemos ver</span>
+        <span class="coverage__v" id="coverageLabel">1 de 5 áreas</span>
+      </div>
+      <div class="coverage__bar" id="coverageBar"><i></i></div>
+      <p class="coverage__note" id="coverageNote">Con poco también sirve. Mientras más marques, más completo será.</p>
+    </div>
+
+    <div class="step__actions">
+      <button class="btn btn--primary" type="button" id="toDatos" data-goto="datos" disabled>Continuar</button>
+      <button class="link-arrow link-back" type="button" data-goto="intro">Volver</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════ 03 · DATOS (enlaces + contexto, en una sola pantalla) ═══════ -->
+<section class="step" data-step="datos">
+  <div class="wrap step__inner">
+
+    <header class="step__head">
+      <p class="eyebrow eyebrow--violet">Paso 2 de 2</p>
+      <h2 class="step__title">Cuéntanos lo básico</h2>
+      <p class="step__lead">Solo lo que tengas a la mano. Puedes dejar en blanco lo que no sepas.</p>
+    </header>
+
+    <div class="fields" id="enlacesGrid">
+
+      <div class="field" data-field="web" hidden>
+        <label for="fWeb">Tu página web</label>
+        <input id="fWeb" type="url" inputmode="url" placeholder="tuempresa.com" autocomplete="url">
+      </div>
+
+      <div class="field" data-field="google" hidden>
+        <label for="fGoogle">Tu ficha de negocio en Google</label>
+        <input id="fGoogle" type="text" placeholder="El nombre con el que apareces">
+      </div>
+
+      <div class="field" data-field="instagram" hidden>
+        <label for="fIg">Instagram</label>
+        <input id="fIg" type="text" data-social placeholder="@tunegocio">
+      </div>
+
+      <div class="field" data-field="facebook" hidden>
+        <label for="fFb">Facebook</label>
+        <input id="fFb" type="text" data-social placeholder="facebook.com/tunegocio">
+      </div>
+
+      <div class="field" data-field="linkedin" hidden>
+        <label for="fLi">LinkedIn</label>
+        <input id="fLi" type="text" data-social placeholder="linkedin.com/company/tunegocio">
+      </div>
+
+      <div class="field" data-field="tiktok" hidden>
+        <label for="fTt">TikTok</label>
+        <input id="fTt" type="text" data-social placeholder="@tunegocio">
+      </div>
+
+      <div class="field field--wide" data-field="marca" hidden>
+        <span class="field__label">Material de marca que tengas</span>
+        <div class="checks">
+          <label><input type="checkbox" data-brand value="logo"> Logo</label>
+          <label><input type="checkbox" data-brand value="manual"> Manual de marca</label>
+          <label><input type="checkbox" data-brand value="presentacion"> Presentación</label>
+          <label><input type="checkbox" data-brand value="brochure"> Brochure o catálogo</label>
+        </div>
+      </div>
+
+      <div class="field field--sep">
+        <label for="fName">Nombre del negocio</label>
+        <input id="fName" type="text" placeholder="Cómo se llama" autocomplete="organization">
+      </div>
+
+      <div class="field field--sep">
+        <label for="fCity">Ciudad</label>
+        <input id="fCity" type="text" placeholder="Dónde están tus clientes" autocomplete="address-level2">
+      </div>
+
+      <div class="field field--wide">
+        <label for="fWhat">¿Qué hace tu negocio?</label>
+        <input id="fWhat" type="text" placeholder="En una frase, como se lo dirías a alguien que acabas de conocer">
+      </div>
+
+      <div class="field field--wide">
+        <span class="field__label">¿Cómo te encuentran hoy?</span>
+        <div class="checks">
+          <label><input type="checkbox" data-found value="google"> Google</label>
+          <label><input type="checkbox" data-found value="redes"> Redes sociales</label>
+          <label><input type="checkbox" data-found value="whatsapp"> WhatsApp</label>
+          <label><input type="checkbox" data-found value="recomendacion"> Recomendaciones</label>
+          <label><input type="checkbox" data-found value="web"> Mi página web</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="step__actions">
+      <button class="btn btn--primary btn--lg" type="button" data-goto="analisis">Ver mi diagnóstico</button>
+      <button class="link-arrow link-back" type="button" data-goto="activos">Volver</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════ 04 · ANÁLISIS ═══════ -->
+<section class="step" data-step="analisis">
+  <div class="wrap analysis">
+    <p class="eyebrow">Analizando</p>
+    <ol class="analysis__beats">
+      <li class="analysis__beat">Entender</li>
+      <li class="analysis__beat">Encontrar</li>
+      <li class="analysis__beat">Analizar</li>
+      <li class="analysis__beat">Identificar</li>
+      <li class="analysis__beat">Oportunidades</li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ═══════ 05 · RESULTADO ═══════ -->
+<section class="step" data-step="resultado">
+  <div class="wrap step__inner">
+
+    <header class="step__head result__head">
+      <p class="eyebrow">Esto es lo que tus clientes pueden estar viendo</p>
+      <h2 class="step__title">El diagnóstico de <span id="resultWho">tu negocio</span></h2>
+    </header>
+
+    <div class="score">
+      <div class="score__gauge">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Indicador del IONN Growth Score">
+          <circle class="score__track" cx="100" cy="100" r="86"></circle>
+          <circle class="score__ring" id="scoreRing" cx="100" cy="100" r="86"
+                  transform="rotate(-90 100 100)"></circle>
+        </svg>
+        <div class="score__center">
+          <span class="score__num" id="scoreNumber">0</span>
+          <span class="score__of">/100</span>
+        </div>
+      </div>
+
+      <div class="score__meta">
+        <p class="score__name">IONN Growth Score™</p>
+        <p class="score__level" id="scoreLevel">—</p>
+        <p class="score__cov" id="resultCoverage"></p>
+        <p class="ai-flag" id="aiFlag" hidden>Analizando con IA…</p>
+        <p class="score__disclaimer">Orientativo, con lo que compartiste. No es una calificación absoluta.</p>
+      </div>
+    </div>
+
+    <p class="unsure" id="thinNote" hidden>Compartiste poco, así que este número dice más de lo que no vimos que de tu negocio. Aun así, las oportunidades de abajo son por dónde empezaríamos.</p>
+
+    <h3 class="result__sub">Área por área</h3>
+    <ol class="breakdown" id="breakdown"></ol>
+
+    <h3 class="result__sub" id="oppHead">Tus principales oportunidades</h3>
+    <ol class="opps" id="opportunities"></ol>
+    <p class="unsure" id="oppNone" hidden>Con lo que compartiste no detectamos brechas evidentes. Vale la pena una revisión más profunda.</p>
+
+    <section class="meaning">
+      <h3>¿Qué significa esto para tu negocio?</h3>
+      <p id="resultClosing"></p>
+    </section>
+
+    <section class="lead" id="leadSection">
+      <h3 class="lead__title">¿Lo revisamos juntos?</h3>
+      <p class="lead__lead">Convertimos estos hallazgos en prioridades y acciones concretas para tu negocio.</p>
+
+      <form class="lead__form" id="leadForm">
+        <div class="field"><label for="lName">Nombre</label><input id="lName" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="lCompany">Empresa</label><input id="lCompany" type="text" autocomplete="organization"></div>
+        <div class="field"><label for="lEmail">Correo</label><input id="lEmail" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="lPhone">Teléfono o WhatsApp</label><input id="lPhone" type="tel" autocomplete="tel"></div>
+        <div class="lead__actions">
+          <button class="btn btn--primary btn--lg" type="submit" id="leadWhats">Quiero hablar con un Consultor de IONN</button>
+          <a class="link-arrow" href="index.html#proceso">Conocer cómo trabajamos</a>
+        </div>
+      </form>
+
+      <p class="lead__done" id="leadDone" hidden>Listo. Se abrió WhatsApp con tu diagnóstico dentro para que solo le des enviar.</p>
+      <p class="lead__privacy">Usamos tus datos únicamente para contactarte sobre este diagnóstico.</p>
+    </section>
+
+    <div class="step__actions">
+      <button class="link-arrow link-back" type="button" data-goto="intro">Empezar otro diagnóstico</button>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- El CTA te sigue mientras lees el resultado: si te convence a la mitad,
+     no tienes que bajar hasta el final para actuar. -->
+<div class="stickycta" id="stickyCta" hidden>
+  <div class="wrap stickycta__inner">
+    <p class="stickycta__text">¿Te suena? Podemos revisarlo juntos.</p>
+    <button class="btn btn--primary" type="button" id="stickyGo">Quiero hablar con un Consultor de IONN</button>
+  </div>
+</div>
+
+<!-- ═══════════════ CANALES · Chat IA + WhatsApp ═══════════════ -->
+<div class="dock" id="dock">
+
+  <button class="dock__btn dock__btn--chat" id="chatToggle" type="button"
+          aria-expanded="false" aria-controls="chatPanel"
+          data-tip="¿Tienes una pregunta sobre tu negocio?">
+    <!-- Burbuja con chispa: se lee como "aquí se conversa" y como "responde con IA".
+         Alternativas listas para intercambiar, sustituyendo solo los dos <path> de adentro:
+         · señal   <circle class="is-fill" cx="8.4" cy="10.6" r="1.05" opacity=".45"/><circle class="is-fill" cx="12" cy="10.6" r="1.35"/><circle class="is-fill" cx="15.6" cy="10.6" r="1.05" opacity=".45"/>
+         · marca   <text class="dock__word" x="12" y="13.4">IONN</text>
+         · núcleo  <circle class="is-fill" cx="12" cy="12" r="2.2"/><path d="M15.6 8.4 a5.1 5.1 0 0 1 0 7.2"/><path d="M8.4 15.6 a5.1 5.1 0 0 1 0 -7.2"/> -->
+    <svg class="dock__glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 10.6 a7 6.2 0 0 1 16 0 a7 6.2 0 0 1 -8 6.2 l-4.2 3 v-3.4 a6.6 6 0 0 1 -3.8 -5.8 z"></path>
+      <path class="is-fill" d="M12 6.6 l.85 2.55 2.55 .85 -2.55 .85 -.85 2.55 -.85 -2.55 -2.55 -.85 2.55 -.85 z"></path>
+    </svg>
+    <span class="dock__close-glyph" aria-hidden="true"></span>
+    <span class="u-sr">Abrir el asesor digital de IONN</span>
+  </button>
+
+  <a class="dock__btn dock__btn--wa" id="waBtn"
+     href="https://wa.me/522296478519?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20IONN%20y%20las%20oportunidades%20de%20crecimiento%20de%20mi%20negocio."
+     target="_blank" rel="noopener"
+     data-tip="Habla con nuestro equipo">
+    <svg class="dock__glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4.6 19.4 L5.9 15.6 A7.6 7.6 0 1 1 8.9 18.4 Z"></path>
+      <path d="M9.3 9.1 c.9 2.6 3 4.7 5.6 5.6 l1.2 -1.4 2 .9 -.4 2 c-3.9 .4 -9.4 -5.1 -9 -9 l2 -.4 .9 2 z"></path>
+    </svg>
+    <span class="dock__label">WhatsApp</span>
+  </a>
+
+</div>
+
+<!-- Panel de conversación -->
+<section class="chat" id="chatPanel" hidden role="dialog" aria-labelledby="chatTitle">
+
+  <header class="chat__head">
+    <div>
+      <h2 class="chat__title" id="chatTitle">IONN AI</h2>
+      <p class="chat__sub">Hablemos sobre tu negocio.</p>
+    </div>
+    <button class="chat__close" id="chatClose" type="button">
+      <span aria-hidden="true"></span>
+      <span class="u-sr">Cerrar la conversación</span>
+    </button>
+  </header>
+
+  <div class="chat__log" id="chatLog" aria-live="polite" aria-atomic="false">
+    <div class="msg msg--ai">
+      <p>Hola.</p>
+      <p>Puedo ayudarte a entender oportunidades en marca, web, Google, redes sociales e IA.</p>
+      <p>También puedo ayudarte a descubrir si vale la pena hacer un diagnóstico de tu presencia digital.</p>
+    </div>
+  </div>
+
+  <div class="chat__suggest" id="chatSuggest">
+    <button type="button" data-q="¿Por qué mi página no genera clientes?">¿Por qué mi página no genera clientes?</button>
+    <button type="button" data-q="¿Cómo puedo aparecer más en Google?">¿Cómo puedo aparecer más en Google?</button>
+    <button type="button" data-q="¿Mi marca comunica lo que quiero?">¿Mi marca comunica lo que quiero?</button>
+    <button type="button" data-q="¿Qué debería mejorar primero?">¿Qué debería mejorar primero?</button>
+    <button type="button" data-q="¿Cómo puede ayudarme la IA?">¿Cómo puede ayudarme la IA?</button>
+    <button type="button" data-q="¿Cómo puedo saber dónde están mis oportunidades?">¿Cómo puedo saber dónde están mis oportunidades?</button>
+  </div>
+
+  <form class="chat__form" id="chatForm" autocomplete="off">
+    <label class="u-sr" for="chatInput">Escribe tu pregunta</label>
+    <input class="chat__input" id="chatInput" type="text" name="q"
+           placeholder="Escribe tu pregunta..." maxlength="700">
+    <button class="chat__send" id="chatSend" type="submit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 h13 M12 6.5 L17.8 12 L12 17.5"></path></svg>
+      <span class="u-sr">Enviar la pregunta</span>
+    </button>
+  </form>
+
+  <p class="chat__foot">Respuestas orientativas. Para hablar con una persona del equipo, usa WhatsApp.</p>
+
+</section>
+
+<!--
+  Base de conocimiento del modo guiado.
+  Se usa cuando /api/chat no está disponible (sin llave configurada, sin
+  conexión, o abriendo el archivo con doble clic). Está en HTML para que
+  puedas editar cualquier respuesta sin tocar el JavaScript.
+  data-bridge="1" marca las respuestas que pueden llevar al diagnóstico.
+-->
+<template id="chatKB">
+
+  <article data-q="¿Por qué mi página no genera clientes?" data-bridge="1">
+    <p>Casi siempre no es un problema de tráfico, es un problema de decisión. La gente entra, no entiende en diez segundos qué haces ni por qué tú, y se va.</p>
+    <p>Las tres causas que más vemos: la propuesta está escrita hacia adentro y no para el cliente, no hay un siguiente paso claro, y el celular muestra una versión distinta de la que tú ves en tu computadora.</p>
+    <p>¿A qué se dedica tu negocio? Con eso te digo por dónde empezaría a revisar.</p>
+  </article>
+
+  <article data-q="¿Cómo puedo aparecer más en Google?">
+    <p>Depende de qué tan cerca esté la persona de comprarte, y son dos trabajos distintos.</p>
+    <p>Si te buscan por tu nombre y no apareces, el problema está en tu ficha de negocio y en la información básica que Google tiene de ti. Eso se arregla rápido y suele dar resultados en semanas.</p>
+    <p>Si buscan lo que vendes sin conocerte, el problema es que tu página no habla de eso con las palabras que ellos usan. Eso toma más tiempo. ¿Cuál de los dos te está pasando?</p>
+  </article>
+
+  <article data-q="¿Mi marca comunica lo que quiero?">
+    <p>Hay una prueba rápida: pregúntale a tres clientes qué dirían que haces, con sus palabras. Si las tres respuestas son distintas entre sí, o distintas de la tuya, ahí está la brecha.</p>
+    <p>Una marca no es el logo. Es lo que alguien puede repetir de ti cuando no estás presente.</p>
+  </article>
+
+  <article data-q="¿Qué debería mejorar primero?" data-bridge="1">
+    <p>Lo que esté más cerca de la decisión del cliente.</p>
+    <p>Si ya te encuentran pero no te contactan, no inviertas en más visibilidad: arregla lo que pasa cuando llegan. Si nadie te encuentra, da igual qué tan buena esté tu página.</p>
+    <p>Para decirte cuál es tu caso tendría que ver tus puntos de contacto.</p>
+  </article>
+
+  <article data-q="¿Cómo puede ayudarme la IA?">
+    <p>En dos frentes distintos.</p>
+    <p>Hacia adentro, para quitarte trabajo repetitivo: responder, dar seguimiento, ordenar información que hoy vive en la cabeza de alguien.</p>
+    <p>Hacia afuera, para que los sistemas que hoy recomiendan negocios entiendan qué haces. Cada vez más gente pregunta antes de buscar, y eso depende de algo poco glamoroso: que tu información sea clara y consistente en todos lados.</p>
+  </article>
+
+  <article data-q="¿Cómo puedo saber dónde están mis oportunidades?" data-bridge="1">
+    <p>Viendo tu negocio como lo ve alguien que todavía no te conoce: qué encuentra en Google, qué entiende de tu página, qué le dicen tus redes, y si todo eso cuenta la misma historia.</p>
+    <p>Eso es exactamente lo que hace el diagnóstico.</p>
+  </article>
+
+  <article data-q="__fallback__">
+    <p>Ahorita estoy en modo guiado y solo puedo responder las preguntas de arriba.</p>
+    <p>Si quieres platicar tu caso concreto, escríbele a nuestro equipo por WhatsApp. Y si prefieres empezar por entender dónde estás parado, el diagnóstico es el camino corto.</p>
+  </article>
+
+</template>
+
+<!--
+  ══════════════════════════════════════════════════════════════════════
+  CONTENIDO DEL IONN GROWTH SCORE™
+  Todo lo que dice el diagnóstico vive aquí, en HTML, no en JavaScript.
+  Puedes reescribir cualquier frase abriendo este archivo.
+
+  · data-w   = peso de la señal dentro de su dimensión (los cinco pesos
+               de cada dimensión suman 100).
+  · data-band = interpretación según el nivel: bajo (0-49), medio (50-74),
+               alto (75-100).
+  · El <span> dentro de cada señal es la oportunidad que se muestra
+    cuando esa señal falta.
+  ══════════════════════════════════════════════════════════════════════
+-->
+<template id="scoreCopy">
+
+  <div data-dim="marca" data-label="Marca" data-weight="20">
+    <p data-band="bajo">Tu marca todavía no tiene un lugar donde se cuente completa. Quien te compara con otros tiene poco de dónde agarrarse.</p>
+    <p data-band="medio">Tu marca ya se sostiene, pero no aparece igual en todos tus puntos de contacto. Eso le cuesta trabajo a quien te está evaluando.</p>
+    <p data-band="alto">Tu marca es reconocible y consistente. La oportunidad está en afinar el mensaje, no en construirlo.</p>
+    <ul>
+      <li data-signal="marca_material" data-w="30">Tienes material de marca
+        <span>Reunir tu logo, tus colores y tu mensaje en un solo lugar, para que tu negocio se vea igual donde sea que lo encuentren.</span></li>
+      <li data-signal="marca_multicanal" data-w="25">Tu marca aparece en dos o más canales
+        <span>Llevar tu marca a más de un punto de contacto, para que quien te busque te reconozca donde te encuentre.</span></li>
+      <li data-signal="marca_propuesta" data-w="25">Explicas con claridad qué hace tu negocio
+        <span>Poner en una frase qué haces y para quién. Si tú no la tienes clara, tu cliente tampoco.</span></li>
+      <li data-signal="marca_casa" data-w="20">Tienes un lugar propio donde vive tu marca
+        <span>Tener un espacio propio donde tu marca se cuente completa, sin depender del formato de una red social.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="web" data-label="Web" data-weight="25">
+    <p data-band="bajo">Hoy tu negocio depende de canales que no controlas. Una página propia es donde el interés se convierte en decisión.</p>
+    <p data-band="medio">Tienes una página, pero todavía no está trabajando como el punto donde la gente decide.</p>
+    <p data-band="alto">Tu página está haciendo su trabajo. Lo que sigue es afinar cómo lleva a la gente al siguiente paso.</p>
+    <ul>
+      <li data-signal="web_existe" data-w="40">Tienes una página web
+        <span>Tener una página propia donde el interés se convierta en una decisión, y no se quede en curiosidad.</span></li>
+      <li data-signal="web_destino" data-w="25">Tu página es uno de los caminos por los que llegan tus clientes
+        <span>Convertir tu página en un destino real y no en un folleto que nadie visita.</span></li>
+      <li data-signal="web_dominio" data-w="20">Usas un dominio propio
+        <span>Pasar a un dominio con el nombre de tu negocio. Una dirección terminada en el nombre de la plataforma resta confianza.</span></li>
+      <li data-signal="web_segura" data-w="15">Tu dirección usa conexión segura
+        <span>Activar el candado de seguridad. Sin él, el navegador le pone una advertencia a tu cliente antes de dejarlo entrar.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="google" data-label="Google" data-weight="20">
+    <p data-band="bajo">Cuando alguien te busca, encuentra poco o nada tuyo. Es la brecha que más rápido se cierra.</p>
+    <p data-band="medio">Ya apareces, pero no con toda la información que alguien necesita para acercarse.</p>
+    <p data-band="alto">Te encuentran bien. La oportunidad está en aparecer también ante quien todavía no te conoce por nombre.</p>
+    <ul>
+      <li data-signal="google_ficha" data-w="40">Tienes ficha de negocio en Google
+        <span>Crear y completar tu ficha de negocio en Google. Es lo primero que ve alguien que te busca por tu nombre.</span></li>
+      <li data-signal="google_canal" data-w="25">Tus clientes te encuentran por Google
+        <span>Trabajar tu presencia en las búsquedas que hacen tus clientes cuando todavía no te conocen.</span></li>
+      <li data-signal="google_indexable" data-w="20">Google tiene una página tuya que leer
+        <span>Darle a Google una página tuya que leer. Sin eso, solo puede mostrar lo que otros dicen de ti.</span></li>
+      <li data-signal="google_local" data-w="15">Tienes un mercado definido
+        <span>Definir tu ciudad o mercado principal, para aparecer ante quien te tiene cerca y te puede comprar hoy.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="redes" data-label="Redes sociales" data-weight="20">
+    <p data-band="bajo">Tus redes todavía no funcionan como un punto de contacto real para tu negocio.</p>
+    <p data-band="medio">Tienes presencia, pero le falta convertirse en una puerta de entrada.</p>
+    <p data-band="alto">Tus redes están construyendo memoria. Lo que sigue es que también construyan conversaciones.</p>
+    <ul>
+      <li data-signal="redes_presencia" data-w="30">Tienes presencia en al menos una red
+        <span>Elegir la red donde de verdad están tus clientes y sostenerla, en vez de estar en todas a medias.</span></li>
+      <li data-signal="redes_canal" data-w="25">Tus clientes te encuentran por redes
+        <span>Convertir tus redes en un punto de entrada, no solo en un escaparate de lo que ya hiciste.</span></li>
+      <li data-signal="redes_varias" data-w="25">Estás en dos o más redes
+        <span>Sumar un segundo canal social, pero solo si puedes sostenerlo con la misma calidad que el primero.</span></li>
+      <li data-signal="redes_contacto" data-w="20">Tienes una vía directa de contacto
+        <span>Poner una vía directa de contacto a la vista, para que el interés no se enfríe buscando cómo escribirte.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="ia" data-label="Nuevas formas de búsqueda" data-weight="15">
+    <p data-band="bajo">Hoy un sistema de recomendación tendría muy poco material para entender qué hace tu negocio.</p>
+    <p data-band="medio">Hay información tuya disponible, pero dispersa. Eso hace que te entiendan a medias.</p>
+    <p data-band="alto">Tu información es suficiente y consistente. Estás en buena posición para las nuevas formas de búsqueda.</p>
+    <ul>
+      <li data-signal="ia_cobertura" data-w="30">Hay suficiente información tuya publicada
+        <span>Publicar más sobre lo que haces. Los sistemas de recomendación no pueden sugerir lo que no alcanzan a entender.</span></li>
+      <li data-signal="ia_web" data-w="25">Tienes una fuente propia de información
+        <span>Tener una fuente propia y ordenada. Es de donde los nuevos buscadores toman lo que van a decir de ti.</span></li>
+      <li data-signal="ia_google" data-w="25">Existes en las fuentes que consultan los buscadores
+        <span>Aparecer en las fuentes que los buscadores y asistentes revisan primero, empezando por Google.</span></li>
+      <li data-signal="ia_claridad" data-w="20">Describes tu negocio de forma clara
+        <span>Describir tu negocio con las mismas palabras en todos lados. La inconsistencia es lo que más confunde a un sistema de recomendación.</span></li>
+    </ul>
+  </div>
+
+  <!-- Oportunidad transversal: se activa cuando tus canales están muy desparejos -->
+  <div data-dim="conexion" data-label="Conexión">
+    <p data-band="unica">Tus puntos de contacto no están al mismo nivel: unos van muy por delante de otros. Hoy trabajan por separado, y eso hace que el esfuerzo de uno no se aproveche en el siguiente.</p>
+    <ul>
+      <li data-signal="conexion" data-w="0">Tus canales trabajan juntos
+        <span>Conectar lo que ya tienes antes de sumar nada nuevo. Es la mejora que menos cuesta y más se nota.</span></li>
+    </ul>
+  </div>
+
+  <!-- Cierre, según el nivel general -->
+  <div data-dim="__cierre__">
+    <p data-band="bajo">No necesitas hacer más marketing por hacer marketing. Necesitas construir los puntos de contacto que tus clientes ya están buscando y no encuentran.</p>
+    <p data-band="medio">No necesitas hacer más marketing por hacer marketing. Necesitas conectar mejor los puntos de contacto que ya utilizan tus clientes.</p>
+    <p data-band="alto">Ya tienes lo esencial funcionando. Tu mayor oportunidad está en conectar mejor cómo te encuentran, cómo te perciben y cómo deciden contactarte.</p>
+  </div>
+
+</template>
+
+<!--
+  ══════════════════════════════════════════════════════════════════════
+  CONTENIDO DEL IONN GROWTH SCORE™
+  Todo lo que dice el diagnóstico vive aquí, en HTML. Puedes reescribir
+  cualquier frase abriendo este archivo, sin tocar el JavaScript.
+
+  · data-w    = peso de la señal dentro de su área (suman 100).
+  · data-band = interpretación por nivel: bajo (0-49), medio (50-74), alto (75+).
+  · El <span> de cada señal es la oportunidad que se muestra si falta.
+  ══════════════════════════════════════════════════════════════════════
+-->
+<template id="scoreCopy">
+
+  <div data-dim="marca" data-label="Marca" data-weight="20">
+    <p data-band="bajo">Tu marca todavía no tiene un lugar donde se cuente completa.</p>
+    <p data-band="medio">Tu marca se sostiene, pero no aparece igual en todos lados.</p>
+    <p data-band="alto">Tu marca es reconocible y consistente. Toca afinar el mensaje, no construirlo.</p>
+    <ul>
+      <li data-signal="marca_material" data-w="30">Tienes material de marca
+        <span>Reunir tu logo, tus colores y tu mensaje en un solo lugar, para verte igual donde sea que te encuentren.</span></li>
+      <li data-signal="marca_multicanal" data-w="25">Tu marca aparece en dos o más lugares
+        <span>Estar en más de un lugar, para que quien te busque te reconozca donde te encuentre.</span></li>
+      <li data-signal="marca_propuesta" data-w="25">Explicas con claridad qué hace tu negocio
+        <span>Poner en una frase qué haces y para quién. Si tú no la tienes clara, tu cliente tampoco.</span></li>
+      <li data-signal="marca_casa" data-w="20">Tienes un lugar propio donde vive tu marca
+        <span>Tener un espacio propio donde tu marca se cuente completa, sin depender del formato de una red social.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="web" data-label="Web" data-weight="25">
+    <p data-band="bajo">Hoy dependes de canales que no controlas.</p>
+    <p data-band="medio">Tienes página, pero todavía no es donde la gente decide.</p>
+    <p data-band="alto">Tu página hace su trabajo. Sigue afinar cómo lleva al siguiente paso.</p>
+    <ul>
+      <li data-signal="web_existe" data-w="40">Tienes una página web
+        <span>Tener una página propia donde el interés se convierta en decisión, y no se quede en curiosidad.</span></li>
+      <li data-signal="web_destino" data-w="25">Tu página es uno de los caminos por los que llegan tus clientes
+        <span>Convertir tu página en un destino real y no en un folleto que nadie visita.</span></li>
+      <li data-signal="web_dominio" data-w="20">Usas un dominio propio
+        <span>Pasar a una dirección con el nombre de tu negocio. Terminar en el nombre de la plataforma resta confianza.</span></li>
+      <li data-signal="web_segura" data-w="15">Tu dirección usa conexión segura
+        <span>Activar el candado de seguridad. Sin él, el navegador advierte a tu cliente antes de dejarlo entrar.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="google" data-label="Google" data-weight="20">
+    <p data-band="bajo">Cuando alguien te busca, encuentra poco o nada tuyo.</p>
+    <p data-band="medio">Ya apareces, pero sin toda la información que alguien necesita para acercarse.</p>
+    <p data-band="alto">Te encuentran bien. Sigue aparecer ante quien aún no te conoce por nombre.</p>
+    <ul>
+      <li data-signal="google_ficha" data-w="40">Tienes ficha de negocio en Google
+        <span>Crear y completar tu ficha en Google. Es lo primero que ve quien te busca por tu nombre.</span></li>
+      <li data-signal="google_canal" data-w="25">Tus clientes te encuentran por Google
+        <span>Trabajar tu presencia en las búsquedas que hacen tus clientes cuando aún no te conocen.</span></li>
+      <li data-signal="google_indexable" data-w="20">Google tiene una página tuya que leer
+        <span>Darle a Google una página tuya que leer. Sin eso solo puede mostrar lo que otros dicen de ti.</span></li>
+      <li data-signal="google_local" data-w="15">Tienes un mercado definido
+        <span>Definir tu ciudad o mercado, para aparecer ante quien te tiene cerca y te puede comprar hoy.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="redes" data-label="Redes sociales" data-weight="20">
+    <p data-band="bajo">Tus redes todavía no funcionan como una puerta de entrada.</p>
+    <p data-band="medio">Tienes presencia, pero le falta convertirse en conversaciones.</p>
+    <p data-band="alto">Tus redes construyen memoria. Sigue que también construyan contactos.</p>
+    <ul>
+      <li data-signal="redes_presencia" data-w="30">Tienes presencia en al menos una red
+        <span>Elegir la red donde de verdad están tus clientes y sostenerla, en vez de estar en todas a medias.</span></li>
+      <li data-signal="redes_canal" data-w="25">Tus clientes te encuentran por redes
+        <span>Convertir tus redes en un punto de entrada, no solo en un escaparate de lo que ya hiciste.</span></li>
+      <li data-signal="redes_varias" data-w="25">Estás en dos o más redes
+        <span>Sumar un segundo canal, pero solo si puedes sostenerlo con la misma calidad que el primero.</span></li>
+      <li data-signal="redes_contacto" data-w="20">Tienes una vía directa de contacto
+        <span>Poner una vía directa de contacto a la vista, para que el interés no se enfríe buscando cómo escribirte.</span></li>
+    </ul>
+  </div>
+
+  <div data-dim="ia" data-label="Nuevas formas de búsqueda" data-weight="15">
+    <p data-band="bajo">Hoy un sistema de recomendación tendría muy poco para entenderte.</p>
+    <p data-band="medio">Hay información tuya, pero dispersa. Por eso te entienden a medias.</p>
+    <p data-band="alto">Tu información es suficiente y consistente. Buena posición para lo que viene.</p>
+    <ul>
+      <li data-signal="ia_cobertura" data-w="30">Hay suficiente información tuya publicada
+        <span>Publicar más sobre lo que haces. Nadie puede recomendar lo que no alcanza a entender.</span></li>
+      <li data-signal="ia_web" data-w="25">Tienes una fuente propia de información
+        <span>Tener una fuente propia y ordenada. De ahí toman los nuevos buscadores lo que van a decir de ti.</span></li>
+      <li data-signal="ia_google" data-w="25">Existes en las fuentes que consultan los buscadores
+        <span>Aparecer en las fuentes que los asistentes revisan primero, empezando por Google.</span></li>
+      <li data-signal="ia_claridad" data-w="20">Describes tu negocio de forma clara
+        <span>Describirte con las mismas palabras en todos lados. La inconsistencia es lo que más confunde.</span></li>
+    </ul>
+  </div>
+
+  <!-- Oportunidad transversal: cuando tus canales están muy desparejos -->
+  <div data-dim="conexion" data-label="Conexión">
+    <p data-band="unica">Tus canales no están al mismo nivel: unos van muy por delante de otros y trabajan por separado.</p>
+    <ul>
+      <li data-signal="conexion" data-w="0">Tus canales trabajan juntos
+        <span>Conectar lo que ya tienes antes de sumar nada nuevo. Es la mejora que menos cuesta y más se nota.</span></li>
+    </ul>
+  </div>
+
+  <!-- Cierre, según el nivel general -->
+  <div data-dim="__cierre__">
+    <p data-band="bajo">No necesitas hacer más marketing. Necesitas construir los lugares donde tus clientes ya te están buscando y no te encuentran.</p>
+    <p data-band="medio">No necesitas hacer más marketing. Necesitas conectar mejor los lugares que tus clientes ya usan.</p>
+    <p data-band="alto">Ya tienes lo esencial funcionando. Tu mayor oportunidad está en conectar cómo te encuentran, cómo te perciben y cómo deciden contactarte.</p>
+  </div>
+
+</template>
+
+<script src="assets/js/field.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/score.js" defer></script>
+<script src="assets/js/chat.js" defer></script>
+
+</body>
+</html>

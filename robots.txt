@@ -1,0 +1,12 @@
+# IONN Consulting — mockup en evaluación.
+# Bloqueado por completo mientras no se apruebe producción,
+# para no competir contra el sitio vivo por las mismas búsquedas.
+# Al aprobar, sustituir por el bloque comentado de abajo.
+
+User-agent: *
+Disallow: /
+
+# --- Producción (activar al aprobar) ---
+# User-agent: *
+# Allow: /
+# Sitemap: https://ionnconsulting.com/sitemap.xml

@@ -1,0 +1,666 @@
+/* ==========================================================================
+   IONN CONSULTING · Diagnóstico de Crecimiento
+   Una acción por pantalla. Mucho aire. Cero sensación de formulario.
+   Depende de styles.css (tokens, botones, tipografía).
+   ========================================================================== */
+
+/* Niveles de madurez. Escala validada para daltonismo: va de oportunidad
+   a madurez, no de "malo" a "bueno". Cada nivel lleva SIEMPRE su etiqueta
+   de texto: el color nunca es el único portador del significado. */
+/* Aquí hay DOS barras pegajosas apiladas: la navegación y el progreso.
+   Sin esto, al enfocar un campo con el teclado o al saltar a un ancla,
+   el elemento aterriza debajo de ellas y no se ve. */
+html{scroll-padding-top:calc(var(--nav-h) + 64px)}
+
+:root{
+  --lv-construir:#FF8C42;
+  --lv-desarrollo:#FFD84D;
+  --lv-crecimiento:#18E0FF;
+  --lv-posicionado:#2BFF95;
+  --lv-potencial:#9D5CFF;
+}
+
+/* ---------- Progreso ---------- */
+.diag__progress{
+  position:sticky;
+  top:var(--nav-h);
+  z-index:50;
+  background:rgba(10,10,15,.86);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  padding-block:.7rem;
+}
+.diag__progress[hidden]{display:none}
+.diag__progress-inner{display:flex;align-items:center;gap:var(--s2)}
+.diag__pct{
+  flex:none;
+  min-width:3.2ch;
+  text-align:right;
+  font-size:var(--fs-xs);
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  color:var(--cyan);
+}
+.diag__step-label{
+  flex:none;
+  font-size:var(--fs-xs);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.diag__bar{flex:1 1 auto;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.diag__bar i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(var(--p,0));
+  transform-origin:0 50%;
+  transition:transform .4s var(--ease);
+}
+
+/* ---------- Pasos ---------- */
+.step{display:none}
+.step.is-active{display:block}
+.step__inner{padding-block:var(--s6) var(--s7)}
+.step__head{max-width:44ch;margin-bottom:var(--s4)}
+.step__head:focus{outline:none}
+.step__title{
+  margin-block:var(--s2) .6rem;
+  font-size:clamp(1.6rem,4.6vw,2.5rem);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+.step__lead{color:var(--muted);font-size:var(--fs-md)}
+.step__actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--s3);
+  margin-top:var(--s5);
+}
+.link-back{color:var(--muted)}
+.link-back::after{content:none}
+.link-back::before{content:"←";margin-right:.45rem}
+
+
+/* ---------- 01 · La promesa ----------
+   Dos columnas en desktop: el botón y lo que revisamos quedan a la
+   derecha, arriba del pliegue. Nadie debería tener que hacer scroll
+   para saber qué es esto ni para empezar. */
+.diag__intro{
+  display:grid;
+  gap:var(--s4);
+  align-items:start;
+  padding-block:var(--s5) var(--s6);
+}
+@media(min-width:940px){
+  .diag__intro{
+    grid-template-columns:minmax(0,1fr) minmax(0,.85fr);
+    gap:var(--s5);
+    padding-block:var(--s6) var(--s7);
+    /* El dock (chat + WhatsApp) queda fijo al borde de la ventana,
+       mientras que .wrap deja de crecer al llegar a 1200px: por eso el
+       choque entre la tarjeta y el dock es peor justo entre 940 y
+       ~1300px de ancho (donde vivía la pantalla de Gus) y prácticamente
+       no existe en monitores anchos. Un padding fijo no sirve en todo
+       ese rango — o sobra a los 2560px o rompe la tarjeta a los 940px —
+       así que este gutter escala con el viewport: reserva ~105px de
+       aire en la laptop de referencia (1280px, el Escenario B elegido
+       tras revisar 3 mockups) y se ajusta solo en el resto de anchos,
+       sin volver a angostar la tarjeta más de lo necesario. */
+    padding-right:clamp(100px, 18vw - 60px, 200px);
+  }
+}
+
+.diag__hero{
+  /* En rem, no en ch: .diag__hero hereda el tamaño de fuente del body
+     (16px), así que un max-width en ch aquí se calculaba sobre esa
+     letra chica y no sobre la del título grande — dejaba la columna en
+     ~303px y partía el título en 6 líneas. 36rem replica el mismo
+     patrón que .hero__copy en el Home. */
+  max-width:36rem;
+  margin-bottom:0;
+}
+.diag__title{
+  margin-block:var(--s3) var(--s3);
+  font-size:clamp(1.9rem,5vw,2.8rem);
+  font-weight:700;
+  line-height:1.06;
+  letter-spacing:-.03em;
+  text-wrap:balance;
+}
+.diag__title em{font-style:normal;color:var(--violet)}
+.diag__lead{color:var(--muted);max-width:48ch;margin-bottom:var(--s3)}
+.diag__link{
+  color:var(--bone);
+  font-size:clamp(1rem,2.4vw,1.2rem);
+  font-weight:600;
+  margin-bottom:var(--s4);
+}
+.diag__note{margin-top:.8rem;font-size:var(--fs-sm);color:var(--dim)}
+
+.diag__card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(180deg,rgba(24,224,255,.045),transparent 60%),var(--carbon);
+  padding:var(--s3);
+}
+@media(min-width:940px){ .diag__card{padding:var(--s4)} }
+.diag__card-k{
+  font-size:var(--fs-xs);
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:var(--s2);
+}
+
+.diag__dims{display:grid;gap:0}
+.diag__dims li{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:var(--s2);
+  padding-block:.6rem;
+  border-bottom:1px solid var(--line);
+}
+.diag__dims li:last-child{border-bottom:0}
+.diag__dims b{font-size:var(--fs-sm);font-weight:600}
+.diag__dims span{font-size:var(--fs-xs);color:var(--dim);text-align:right}
+
+.diag__start{width:100%;margin-top:var(--s3)}
+
+.diag__facts{
+  display:grid;
+  gap:.55rem;
+  margin-top:var(--s3);
+  padding-top:var(--s3);
+  border-top:1px solid var(--line);
+}
+.diag__facts li{display:flex;align-items:baseline;gap:.6rem}
+.diag__facts b{
+  flex:none;
+  min-width:9.5ch;
+  font-size:var(--fs-sm);
+  font-weight:700;
+  color:var(--cyan);
+}
+.diag__facts span{font-size:var(--fs-xs);color:var(--dim)}
+
+
+/* ---------- Preguntas frecuentes ---------- */
+.faq{padding-bottom:var(--s6);border-top:1px solid var(--line);padding-top:var(--s5)}
+.faq__title{
+  font-size:clamp(1.2rem,3vw,1.6rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  margin-bottom:var(--s4);
+}
+.faq__item{
+  padding-block:var(--s3);
+  border-bottom:1px solid var(--line);
+  max-width:70ch;
+}
+.faq__item:last-child{border-bottom:0}
+.faq__item h3{
+  font-size:1.02rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+  color:var(--cyan);
+  margin-bottom:.4rem;
+}
+.faq__item p{font-size:var(--fs-sm);color:var(--muted)}
+
+
+/* ---------- Chips de selección ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:var(--s3)}
+.chip{
+  padding:.7rem 1.05rem;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  font-size:var(--fs-sm);
+  font-weight:500;
+  color:var(--muted);
+  background:var(--carbon);
+  transition:border-color .2s var(--ease),color .2s var(--ease),background-color .2s var(--ease);
+}
+.chip:hover{border-color:rgba(24,224,255,.45);color:var(--bone)}
+.chip.is-on{
+  border-color:var(--cyan);
+  color:var(--obsidian);
+  background:var(--cyan);
+  font-weight:600;
+}
+.chip--alt{border-style:dashed}
+.chip--alt.is-on{background:var(--violet);border-color:var(--violet);color:var(--obsidian)}
+
+.unsure{
+  font-size:var(--fs-sm);
+  color:var(--muted);
+  border-left:2px solid var(--violet);
+  padding:.3rem 0 .3rem var(--s2);
+  margin-bottom:var(--s3);
+  max-width:58ch;
+}
+.unsure[hidden]{display:none}
+
+
+/* ---------- Cobertura del análisis ----------
+   Describe cuánto pudimos ver, no qué tan bueno es el negocio.
+   Por eso nunca dice "básico". */
+.coverage{
+  max-width:420px;
+  padding:var(--s3);
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--carbon);
+}
+.coverage__head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);margin-bottom:.6rem}
+.coverage__k{
+  font-size:var(--fs-xs);
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.coverage__v{font-size:var(--fs-sm);font-weight:600;font-variant-numeric:tabular-nums}
+.coverage__bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.coverage__bar i{
+  display:block;height:100%;width:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(var(--p,.2));
+  transform-origin:0 50%;
+  transition:transform .45s var(--ease);
+}
+.coverage__note{margin-top:.6rem;font-size:var(--fs-xs);color:var(--dim);line-height:1.5}
+
+
+/* ---------- Campos ---------- */
+.fields{display:grid;gap:var(--s3)}
+@media(min-width:700px){ .fields{grid-template-columns:1fr 1fr;gap:var(--s3) var(--s4)} }
+.field{display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.field[hidden]{display:none}
+.field--wide{grid-column:1/-1}
+/* Marca dónde terminan los enlaces y empiezan los datos del negocio,
+   sin partir el paso en dos pantallas. */
+.field--sep{position:relative}
+@media(min-width:700px){ .field--sep:first-of-type{grid-column:1} }
+
+.field label,.field__label{
+  font-size:var(--fs-sm);
+  font-weight:600;
+  color:var(--bone);
+}
+.field label i{font-style:normal;font-weight:400;color:var(--dim)}
+
+.field input[type="text"],
+.field input[type="url"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select{
+  width:100%;
+  padding:.8rem .95rem;
+  font:inherit;
+  font-size:var(--fs-sm);
+  color:var(--bone);
+  background:var(--carbon);
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius);
+  transition:border-color .2s var(--ease);
+}
+.field input::placeholder{color:var(--dim)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--cyan)}
+.field select{appearance:none;cursor:pointer;padding-right:2.2rem;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;
+  background-size:5px 5px,5px 5px;
+  background-repeat:no-repeat;
+}
+.field__hint{font-size:var(--fs-xs);color:var(--dim);line-height:1.5}
+
+.checks{display:flex;flex-wrap:wrap;gap:.5rem .95rem}
+.checks label{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:var(--fs-sm);
+  font-weight:400;
+  color:var(--muted);
+  cursor:pointer;
+}
+.checks input{
+  appearance:none;
+  width:17px;height:17px;
+  flex:none;
+  border:1px solid var(--line-strong);
+  border-radius:4px;
+  background:var(--carbon);
+  transition:border-color .18s var(--ease),background-color .18s var(--ease);
+}
+.checks input:checked{background:var(--cyan);border-color:var(--cyan)}
+.checks input:checked::after{
+  content:"";
+  display:block;
+  width:5px;height:9px;
+  margin:1px auto 0;
+  border:solid var(--obsidian);
+  border-width:0 2px 2px 0;
+  transform:rotate(42deg);
+}
+.checks label:hover{color:var(--bone)}
+
+
+/* ---------- 05 · Análisis ---------- */
+.analysis{
+  min-height:calc(100svh - var(--nav-h));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:var(--s4);
+}
+.analysis__beats{display:flex;flex-direction:column;gap:.35rem}
+.analysis__beat{
+  font-size:clamp(1.7rem,6vw,3rem);
+  font-weight:700;
+  letter-spacing:-.03em;
+  line-height:1.12;
+  color:var(--dim);
+  opacity:.28;
+  transform:translateY(6px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease),color .5s var(--ease);
+}
+.analysis__beat.is-on{opacity:1;transform:none;color:var(--bone)}
+.analysis__beat:last-child.is-on{color:var(--green)}
+
+
+/* ---------- 06 · El resultado ---------- */
+.result__head{max-width:34ch}
+.result__sub{
+  font-size:var(--fs-xs);
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-block:var(--s6) var(--s3);
+}
+
+/* — El número es el protagonista: un dato, no una gráfica — */
+.score{
+  display:grid;
+  gap:var(--s4);
+  align-items:center;
+  justify-items:center;
+  text-align:center;
+  padding:var(--s4) 0 var(--s3);
+  border-block:1px solid var(--line);
+}
+@media(min-width:760px){
+  .score{grid-template-columns:auto 1fr;justify-items:start;text-align:left;gap:var(--s5)}
+}
+
+.score__gauge{position:relative;width:200px;height:200px;flex:none}
+.score__gauge svg{width:100%;height:100%}
+.score__track{fill:none;stroke:var(--line);stroke-width:6}
+.score__ring{
+  fill:none;
+  stroke:var(--cyan);
+  stroke-width:6;
+  stroke-linecap:round;
+}
+.score__center{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.22rem;
+  pointer-events:none;
+}
+.score__num{
+  align-self:center;
+  font-size:3.6rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums;
+  color:var(--bone);
+}
+.score__of{align-self:center;transform:translateY(.9rem);font-size:.84rem;color:var(--dim);font-weight:500}
+
+.score__name{
+  font-size:var(--fs-xs);
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.score__level{
+  font-size:clamp(1.4rem,4vw,2.1rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:var(--c,var(--bone));
+  margin-block:.2rem .6rem;
+}
+.score__cov{font-size:var(--fs-sm);color:var(--muted);font-variant-numeric:tabular-nums}
+.ai-flag{
+  display:inline-block;
+  margin-top:.7rem;
+  padding:.28rem .65rem;
+  border:1px solid rgba(157,92,255,.45);
+  border-radius:999px;
+  font-size:.64rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--violet);
+}
+.ai-flag[hidden]{display:none}
+.ai-flag.is-done{border-color:rgba(43,255,149,.45);color:var(--green)}
+
+.score__disclaimer{margin-top:.7rem;font-size:var(--fs-xs);color:var(--dim);max-width:46ch;line-height:1.55}
+
+
+/* — Desglose por dimensión — */
+.breakdown{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dim{background:var(--carbon);padding:var(--s3)}
+@media(min-width:760px){ .dim{padding:var(--s3) var(--s4)} }
+
+.dim__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem var(--s2);margin-bottom:.7rem}
+.dim__name{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-right:auto}
+.dim__score{
+  font-size:1.35rem;
+  font-weight:700;
+  letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+  color:var(--bone);
+}
+.dim__score small{font-size:.72rem;font-weight:500;color:var(--dim);margin-left:.1rem}
+
+/* El color acompaña; la etiqueta es la que dice qué significa */
+.dim__level,.dim__na{
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.28rem .6rem;
+  border-radius:999px;
+  border:1px solid;
+  white-space:nowrap;
+}
+.dim__level{color:var(--c);border-color:var(--c)}
+.dim__na{color:var(--dim);border-color:var(--line-strong)}
+
+.dim__bar{height:6px;background:rgba(244,246,251,.07);border-radius:4px;overflow:hidden;margin-bottom:.8rem}
+.dim__bar i{
+  display:block;
+  height:100%;
+  width:100%;
+  border-radius:4px;
+  background:var(--c,var(--cyan));
+  transform:scaleX(var(--p,0));
+  transform-origin:0 50%;
+  transition:transform 1s var(--ease-out);
+}
+.dim--na .dim__bar{background:repeating-linear-gradient(45deg,rgba(244,246,251,.05) 0 5px,transparent 5px 10px)}
+
+.dim__text{font-size:var(--fs-sm);color:var(--muted);max-width:64ch}
+.dim__opp{
+  margin-top:.7rem;
+  padding-top:.7rem;
+  border-top:1px solid var(--line);
+  font-size:var(--fs-sm);
+  color:var(--muted);
+  max-width:64ch;
+}
+.dim__opp b{
+  display:block;
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:.2rem;
+}
+
+
+/* — Las tres oportunidades — */
+.opps{display:grid;gap:var(--s3)}
+@media(min-width:900px){ .opps{grid-template-columns:repeat(3,1fr)} }
+.opp{
+  background:var(--carbon);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:var(--s3);
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+}
+.opp__num{
+  font-size:var(--fs-xs);
+  font-weight:700;
+  letter-spacing:.16em;
+  color:var(--violet);
+  font-variant-numeric:tabular-nums;
+}
+.opp__dim{
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.opp__title{
+  font-size:1.02rem;
+  font-weight:600;
+  line-height:1.35;
+  letter-spacing:-.01em;
+  margin-block:.3rem .2rem;
+  text-wrap:balance;
+}
+.opp__text{font-size:var(--fs-sm);color:var(--muted)}
+
+
+/* — Qué significa — */
+.meaning{
+  margin-top:var(--s6);
+  padding:var(--s4);
+  border:1px solid rgba(24,224,255,.24);
+  border-radius:12px;
+  background:linear-gradient(180deg,rgba(24,224,255,.05),transparent 70%),var(--carbon);
+}
+.meaning h3{
+  font-size:clamp(1.2rem,3vw,1.6rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  margin-bottom:.6rem;
+}
+.meaning p{color:var(--muted);max-width:60ch;font-size:var(--fs-md)}
+
+
+/* — Captura del lead: después del valor, nunca antes — */
+.lead{margin-top:var(--s6)}
+.lead__title{
+  font-size:clamp(1.3rem,3.4vw,1.9rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  margin-bottom:.5rem;
+}
+.lead__lead{color:var(--muted);max-width:52ch;margin-bottom:var(--s4)}
+.lead__form{display:grid;gap:var(--s3)}
+@media(min-width:700px){ .lead__form{grid-template-columns:1fr 1fr;gap:var(--s3) var(--s4)} }
+.lead__actions{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--s3);
+  margin-top:var(--s2);
+}
+.lead__done{
+  margin-top:var(--s3);
+  font-size:var(--fs-sm);
+  color:var(--green);
+  font-weight:600;
+}
+.lead__done[hidden]{display:none}
+.lead__privacy{margin-top:var(--s2);font-size:var(--fs-xs);color:var(--dim)}
+
+
+/* ---------- CTA flotante del resultado ---------- */
+.stickycta{
+  position:fixed;
+  left:0;right:0;
+  bottom:0;
+  z-index:65;
+  background:rgba(10,10,15,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid rgba(24,224,255,.28);
+  padding-block:.7rem;
+  padding-bottom:calc(.7rem + env(safe-area-inset-bottom, 0px));
+  animation:stickyIn .3s var(--ease-out);
+}
+.stickycta[hidden]{display:none}
+@keyframes stickyIn{ from{transform:translateY(100%)} to{transform:none} }
+
+.stickycta__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--s2);
+  /* Deja libre la esquina donde viven el chat y WhatsApp */
+  padding-right:calc(var(--s3) + 74px);
+}
+@media(min-width:760px){ .stickycta__inner{padding-right:calc(var(--s4) + 190px)} }
+
+.stickycta__text{
+  font-size:var(--fs-sm);
+  font-weight:600;
+  color:var(--bone);
+}
+@media(max-width:520px){
+  .stickycta__text{display:none}
+  .stickycta__inner{justify-content:flex-start}
+  .stickycta .btn{flex:1 1 auto}
+}
+
+/* El dock sube para no quedar debajo de la barra */
+.dock.is-lifted{bottom:calc(var(--s2) + 62px + env(safe-area-inset-bottom, 0px))}
+@media(min-width:760px){ .dock.is-lifted{bottom:calc(var(--s3) + 62px)} }
+.dock{transition:bottom .28s var(--ease)}
+
+/* Con la barra abajo, el final del contenido necesita aire extra */
+.step[data-step="resultado"] .step__inner{padding-bottom:calc(var(--s7) + 60px)}
+
+
+/* ---------- Movimiento reducido ---------- */
+@media(prefers-reduced-motion:reduce){
+  .diag__bar i,.coverage__bar i,.dim__bar i{transition:none}
+  .analysis__beat{transition:none;opacity:1;transform:none;color:var(--bone)}
+  .stickycta{animation:none}
+  .dock{transition:none}
+  .score__ring{transition:none!important}
+}
