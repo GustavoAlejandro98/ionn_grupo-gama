@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title,
+  description = "Consultora de marketing que conecta marca, web, Google, redes sociales e IA alrededor del crecimiento de tu negocio.",
+  canonical,
+  ogTitle = title,
+  ogDescription = description,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0A0A0F" />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="IONN Consulting" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

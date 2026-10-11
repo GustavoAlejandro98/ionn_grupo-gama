@@ -1,0 +1,9 @@
+# Astro
+node_modules/
+dist/
+.astro/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

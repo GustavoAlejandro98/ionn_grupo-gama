@@ -1,0 +1,37 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Diagnóstico · Laboratorio Astro"
+  description="Placeholder del diagnóstico en el laboratorio Astro. La migración visual completa viene después."
+>
+  <link slot="head" rel="stylesheet" href="/assets/css/diagnostico.css" />
+
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="nav is-stuck">
+    <div class="nav__inner">
+      <a class="nav__brand" href="/">IONN<span>Consulting</span></a>
+      <a class="link-arrow link-back" href="/" style="margin-left:auto">Volver al inicio Astro</a>
+    </div>
+  </header>
+
+  <main id="contenido" class="diag">
+    <section class="step is-active" data-step="intro">
+      <div class="wrap">
+        <div class="diag__intro">
+          <header class="step__head diag__hero">
+            <p class="eyebrow">Laboratorio Astro</p>
+            <h1 class="diag__title">Diagnóstico: <em>placeholder</em> de la Fase 1.</h1>
+            <p class="diag__lead">
+              Aquí irá la migración de <code>diagnostico.html</code>. Por ahora solo confirma
+              que la ruta <code>/diagnostico</code> existe en Astro.
+            </p>
+            <p class="diag__link">El HTML original no se tocó.</p>
+          </header>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

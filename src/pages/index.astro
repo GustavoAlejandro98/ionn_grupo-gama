@@ -1,0 +1,731 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="IONN Consulting · Consultora de marketing digital en Monterrey"
+  description="Consultora de marketing que conecta marca, web, Google, redes sociales e IA alrededor del crecimiento de tu negocio. Descubre dónde están tus oportunidades con el IONN Growth Score."
+  canonical="https://ionn-consulting.vercel.app/"
+  ogTitle="Tu negocio podría estar perdiendo clientes sin saberlo."
+  ogDescription="Tus clientes buscan, comparan y forman una opinión sobre tu negocio mucho antes de hablar contigo. Descubre cómo está tu negocio en 3 minutos."
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://ionn-consulting.vercel.app/#organization",
+          "name": "IONN Consulting",
+          "description": "Consultora de marketing que conecta estrategia, creatividad y tecnología para convertir los puntos de contacto de un negocio en oportunidades de crecimiento.",
+          "url": "https://ionn-consulting.vercel.app/",
+          "email": "hola@ionntech.com",
+          "telephone": "+52-229-647-8519",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Monterrey",
+            "addressRegion": "Nuevo León",
+            "addressCountry": "MX"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Monterrey" },
+            { "@type": "City", "name": "Ciudad de México" },
+            { "@type": "City", "name": "Querétaro" },
+            { "@type": "City", "name": "Guadalajara" },
+            { "@type": "City", "name": "Toluca" }
+          ],
+          "knowsAbout": [
+            "Consultoría de marketing",
+            "Estrategia digital",
+            "Diseño y desarrollo de páginas web",
+            "Posicionamiento en Google",
+            "Google Business Profile",
+            "Redes sociales para empresas",
+            "Estrategia de marca",
+            "Inteligencia artificial para empresas"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Capacidades de IONN Consulting",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marca", "description": "Estrategia e identidad de marca para que te elijan." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web", "description": "Experiencia web que ayuda a tus clientes a decidir." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google", "description": "Presencia en búsquedas y Google Business Profile para que te encuentren." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Redes sociales", "description": "Contenido y presencia social para que te recuerden." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IA", "description": "Inteligencia artificial aplicada para que puedas crecer mejor." } }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ionn-consulting.vercel.app/#website",
+          "url": "https://ionn-consulting.vercel.app/",
+          "name": "IONN Consulting",
+          "inLanguage": "es-MX",
+          "publisher": { "@id": "https://ionn-consulting.vercel.app/#organization" }
+        }
+      ]
+    }
+    </script>
+  </Fragment>
+
+
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash__mark">IONN</div>
+</div>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<video class="bg-video" id="bgVideo" autoplay muted loop playsinline preload="auto" poster="/assets/video/hero-bg-poster.jpg" aria-hidden="true">
+  <source src="/assets/video/hero-bg.mp4" type="video/mp4">
+</video>
+<div class="bg-video-overlay" aria-hidden="true"></div>
+<canvas class="signalfield" id="field" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      IONN<span>Consulting</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#cliente">Tu cliente</a>
+      <a href="#vision">Visión</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#historias">Historias</a>
+    </nav>
+
+    <a class="btn btn--ghost nav__cta" href="/diagnostico">EVALÚA TU PRESENCIA ACTUAL</a>
+
+    <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel">
+      <span class="nav__toggle-bars" aria-hidden="true"></span>
+      <span class="u-sr">Abrir menú</span>
+    </button>
+  </div>
+
+  <div class="nav__panel" id="navPanel" hidden>
+    <a href="#cliente">Tu cliente</a>
+    <a href="#vision">Una visión de negocio</a>
+    <a href="#proceso">Cómo trabajamos</a>
+    <a href="#historias">Historias de crecimiento</a>
+    <a class="nav__panel-cta" href="/diagnostico">EVALÚA TU PRESENCIA ACTUAL</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ═══════════════ 01 · HERO ═══════════════ -->
+<section class="hero" id="top" data-field-mode="orbit">
+  <div class="wrap hero__inner">
+
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow--split">
+        Consultora de marketing
+        <span>Monterrey · CDMX · Querétaro · Guadalajara · Toluca</span>
+      </p>
+
+      <h1 class="hero__title">Tu negocio podría estar perdiendo clientes <em>sin saberlo.</em></h1>
+
+      <p class="hero__lead">Las personas investigan, comparan y toman decisiones sobre tu marca mucho antes de contactarte.</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="/diagnostico">EVALÚA TU PRESENCIA ACTUAL</a>
+        <p class="hero__actions-note">En 3 minutos. Conoce que estás haciendo bien y dónde puedes crecer.</p>
+      </div>
+    </div>
+
+    <!-- HERO VISUAL: Concepto 3 - El Pulso del Descubrimiento (DESHABILITADO)
+    <div class="hero__visual">
+      <canvas class="hero__pulsos" id="heroPulsos" role="img" aria-labelledby="pulsosTitle pulsosDesc"></canvas>
+      <span id="pulsosTitle" class="u-sr">Ondas de descubrimiento</span>
+      <span id="pulsosDesc" class="u-sr">Múltiples ondas de energía que representan los diferentes momentos en que tus clientes descubren y evalúan tu negocio simultáneamente.</span>
+    </div>
+    -->
+
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true"><span></span></div>
+</section>
+
+
+<!-- ═══════════════ 02 · EL CAMINO DE TU CLIENTE ═══════════════ -->
+<section class="change" id="cliente" data-field-mode="drift">
+
+  <div class="change__stage">
+    <div class="wrap change__head">
+      <p class="eyebrow eyebrow--violet">Tu cliente</p>
+      <h2 class="change__title">Tus clientes ya no llegan por un solo camino.</h2>
+      <p class="change__lead">Cada punto de contacto construye una percepción de tu negocio.</p>
+    </div>
+
+    <div class="change__viewport">
+      <div class="change__track" id="changeTrack">
+
+        <svg class="change__path" viewBox="0 0 2100 420" preserveAspectRatio="none" aria-hidden="true">
+          <path class="change__path-base" d="M 80 300 L 250 300 C 500 300, 800 130, 1050 130 C 1300 130, 1600 310, 1850 310 L 2030 310"></path>
+          <path class="change__path-live" id="changePath" d="M 80 300 L 250 300 C 500 300, 800 130, 1050 130 C 1300 130, 1600 310, 1850 310 L 2030 310"></path>
+        </svg>
+
+        <ol class="change__stops">
+          <li class="change__stop" data-at="0" data-y="0.82">
+            <span class="change__dot" aria-hidden="true"></span>
+            <span class="change__etapa">Etapa 01</span>
+            <h3>Te buscan</h3>
+            <p>Tus clientes tienen una necesidad y comienzan a buscar opciones.</p>
+            <p class="change__channel">A través de <strong>Google</strong> te buscan</p>
+          </li>
+          <li class="change__stop" data-at="0.2" data-y="0.15">
+            <span class="change__dot" aria-hidden="true"></span>
+            <span class="change__etapa">Etapa 02</span>
+            <h3>Te conocen</h3>
+            <p>Encuentran tu negocio y quieren entender quién eres, qué haces y si puedes ayudarlos.</p>
+            <p class="change__channel">A través de <strong>Web</strong> te conocen</p>
+          </li>
+          <li class="change__stop" data-at="0.45" data-y="0.82">
+            <span class="change__dot" aria-hidden="true"></span>
+            <span class="change__etapa">Etapa 03</span>
+            <h3>Te revisan</h3>
+            <p>Buscan señales que les ayuden a confiar en tu negocio.</p>
+            <p class="change__channel">A través de <strong>Redes</strong> te revisan</p>
+          </li>
+          <li class="change__stop change__stop--last" data-at="0.7" data-y="0.15">
+            <span class="change__dot" aria-hidden="true"></span>
+            <span class="change__etapa">Etapa 04</span>
+            <h3>Te comparan</h3>
+            <p>Comparan tu negocio con otras opciones y deciden cuál les transmite mayor valor.</p>
+            <p class="change__channel">A través de <strong>Marca</strong> te comparan</p>
+          </li>
+          <li class="change__stop change__stop--violet" data-at="0.9" data-y="0.82">
+            <span class="change__dot" aria-hidden="true"></span>
+            <span class="change__etapa">Nueva puerta de entrada</span>
+            <h3>Te recomienda</h3>
+            <p>Una IA puede recomendar tu negocio cuando tus clientes preguntan por opciones como la tuya.</p>
+            <p class="change__channel">A través de <strong>IA</strong> te recomienda</p>
+          </li>
+        </ol>
+
+      </div>
+    </div>
+
+    <div class="wrap change__foot">
+      <p class="change__close">No se trata de estar en todos lados.<br><strong>Se trata de estar bien donde te buscan, te conocen, te revisan y te comparan.</strong></p>
+      <div class="change__progress" aria-hidden="true"><i id="changeBar"></i></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════ 03 · UNA VISIÓN DE NEGOCIO ═══════════════ -->
+<section class="vision" id="vision" data-field-mode="system" data-inview>
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow">Una visión de negocio</p>
+      <h2 class="sec-title">Tu crecimiento necesita más que marketing.</h2>
+      <p class="sec-lead">Una visión de negocio y cinco formas de hacerlo crecer, conectadas alrededor de una sola cosa.</p>
+    </header>
+
+    <div class="vision__stage">
+      <svg class="system" viewBox="0 0 620 620" role="img" aria-labelledby="sysTitle sysDesc">
+        <title id="sysTitle">Las cinco capacidades de IONN conectadas alrededor del crecimiento</title>
+        <desc id="sysDesc">Marca para que te elijan, web para que decidan, Google para que te encuentren, redes sociales para que te recuerden e inteligencia artificial para que puedas crecer mejor.</desc>
+
+        <defs>
+          <radialGradient id="sysGlow">
+            <stop offset="0%"   stop-color="#2BFF95" stop-opacity=".14"></stop>
+            <stop offset="60%"  stop-color="#2BFF95" stop-opacity=".04"></stop>
+            <stop offset="100%" stop-color="#2BFF95" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <g class="system__rings" aria-hidden="true">
+          <circle cx="310" cy="310" r="112" style="--o:.42"></circle>
+          <circle cx="310" cy="310" r="170" style="--o:.26"></circle>
+          <circle cx="310" cy="310" r="228" style="--o:.14"></circle>
+        </g>
+
+        <circle class="system__halo" cx="310" cy="310" r="180" fill="url(#sysGlow)" aria-hidden="true"></circle>
+
+        <g class="system__links" aria-hidden="true">
+          <line style="--i:0" x1="310"   y1="226"   x2="310"   y2="112"></line>
+          <line style="--i:1" x1="389.9" y1="284"   x2="498.3" y2="248.8"></line>
+          <line style="--i:2" x1="359.4" y1="378"   x2="426.4" y2="470.2"></line>
+          <line style="--i:3" x1="260.6" y1="378"   x2="193.6" y2="470.2"></line>
+          <line style="--i:4" x1="230.1" y1="284"   x2="121.7" y2="248.8"></line>
+        </g>
+
+        <g class="system__core">
+          <circle class="system__core-disc" cx="310" cy="310" r="78"></circle>
+          <circle class="system__core-ring" cx="310" cy="310" r="78"></circle>
+          <text class="system__core-label" x="310" y="316">CRECIMIENTO</text>
+        </g>
+
+        <g class="system__nodes">
+          <g class="system__node" style="--i:0" transform="translate(310 82)">
+            <circle class="system__node-disc" r="30"></circle>
+            <circle class="system__node-ring" r="30"></circle>
+            <g class="orbit__glyph"><path d="M 0 -10 L 10 0 L 0 10 L -10 0 Z"></path></g>
+            <text class="system__node-name" y="-50">MARCA</text>
+            <text class="system__node-sub"  y="-33">Que te elijan</text>
+          </g>
+
+          <g class="system__node" style="--i:1" transform="translate(526.8 239.5)">
+            <circle class="system__node-disc" r="30"></circle>
+            <circle class="system__node-ring" r="30"></circle>
+            <g class="orbit__glyph">
+              <rect x="-10" y="-8.5" width="20" height="17" rx="2.5"></rect>
+              <line x1="-10" y1="-3" x2="10" y2="-3"></line>
+            </g>
+            <text class="system__node-name" y="-50">WEB</text>
+            <text class="system__node-sub"  y="-33">Que decidan</text>
+          </g>
+
+          <g class="system__node" style="--i:2" transform="translate(444 494.5)">
+            <circle class="system__node-disc" r="30"></circle>
+            <circle class="system__node-ring" r="30"></circle>
+            <g class="orbit__glyph">
+              <circle cx="-2" cy="-2" r="8"></circle>
+              <line x1="4" y1="4" x2="9" y2="9"></line>
+            </g>
+            <text class="system__node-name" y="52">GOOGLE</text>
+            <text class="system__node-sub"  y="69">Que te encuentren</text>
+          </g>
+
+          <g class="system__node" style="--i:3" transform="translate(176 494.5)">
+            <circle class="system__node-disc" r="30"></circle>
+            <circle class="system__node-ring" r="30"></circle>
+            <g class="orbit__glyph">
+              <path d="M -10 -7 h 20 v 12 h -12 l -5.5 5 v -5 h -2.5 z"></path>
+            </g>
+            <text class="system__node-name" y="52">REDES SOCIALES</text>
+            <text class="system__node-sub"  y="69">Que te recuerden</text>
+          </g>
+
+          <g class="system__node system__node--violet" style="--i:4" transform="translate(93.2 239.5)">
+            <circle class="system__node-disc" r="30"></circle>
+            <circle class="system__node-ring" r="30"></circle>
+            <g class="orbit__glyph">
+              <line x1="-7" y1="-6" x2="6" y2="-7"></line>
+              <line x1="-7" y1="-6" x2="-2" y2="7"></line>
+              <line x1="6" y1="-7" x2="-2" y2="7"></line>
+              <circle cx="-7" cy="-6" r="2.6"></circle>
+              <circle cx="6" cy="-7" r="2.6"></circle>
+              <circle cx="-2" cy="7" r="2.6"></circle>
+            </g>
+            <text class="system__node-name" y="-50">IA</text>
+            <text class="system__node-sub"  y="-33">Que puedas crecer mejor</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <p class="vision__close">No son cinco servicios sueltos.<br>Son cinco piezas del mismo negocio.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 04 · CÓMO TRABAJAMOS ═══════════════ -->
+<section class="process" id="proceso" data-field-mode="drift">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow eyebrow--violet">Cómo trabajamos</p>
+      <h2 class="sec-title">Primero entendemos. Después construimos.</h2>
+    </header>
+
+    <ol class="process__track" id="processTrack">
+      <li class="process__rail" aria-hidden="true"><i class="process__fill" id="processFill"></i></li>
+
+      <li class="process__step" data-at="0.05">
+        <span class="process__dot" aria-hidden="true"></span>
+        <span class="process__num">01</span>
+        <h3>Entendemos</h3>
+        <p>Tu negocio, tus clientes y tus retos.</p>
+      </li>
+      <li class="process__step" data-at="0.30">
+        <span class="process__dot" aria-hidden="true"></span>
+        <span class="process__num">02</span>
+        <h3>Encontramos</h3>
+        <p>Dónde están tus oportunidades.</p>
+      </li>
+      <li class="process__step" data-at="0.55">
+        <span class="process__dot" aria-hidden="true"></span>
+        <span class="process__num">03</span>
+        <h3>Construimos</h3>
+        <p>Las soluciones que realmente necesitas.</p>
+      </li>
+      <li class="process__step" data-at="0.80">
+        <span class="process__dot" aria-hidden="true"></span>
+        <span class="process__num">04</span>
+        <h3>Mejoramos</h3>
+        <p>Medimos, aprendemos y evolucionamos.</p>
+      </li>
+    </ol>
+
+    <p class="process__close">No empezamos por una solución.<br><strong>Empezamos por entender el problema.</strong></p>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 05 · HISTORIAS DE CRECIMIENTO ═══════════════ -->
+<section class="stories" id="historias" data-field-mode="drift">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow">Historias de crecimiento</p>
+      <h2 class="sec-title">Lo que hacemos se ve en los resultados.</h2>
+      <p class="sec-lead">Conoce cómo hemos ayudado a nuestros clientes a convertir retos en resultados.</p>
+    </header>
+
+    <div class="stories__grid">
+      <article class="story story--lead" data-reveal style="--rd:0">
+        <div class="story__id">
+          <h3 class="story__client">CNC Machinery</h3>
+          <p class="story__industry">Maquinaria industrial · Monterrey</p>
+        </div>
+
+        <dl class="story__metrics">
+          <div class="metric" data-placeholder>
+            <dt>Tráfico desde Google</dt>
+            <dd class="metric__value" data-count="127" data-prefix="+" data-suffix="%">+0%</dd>
+          </div>
+          <div class="metric" data-placeholder>
+            <dt>Solicitudes</dt>
+            <dd class="metric__value" data-count="84" data-prefix="+" data-suffix="%">+0%</dd>
+          </div>
+          <div class="metric" data-placeholder>
+            <dt>Oportunidades</dt>
+            <dd class="metric__value" data-count="3.2" data-decimals="1" data-suffix="×">0×</dd>
+          </div>
+        </dl>
+
+        <div class="story__story">
+          <div><h4>El reto</h4><p>Un negocio conocido en su industria al que casi nadie encontraba en línea.</p></div>
+          <div><h4>Lo que hicimos</h4><p>Conectamos su presencia en Google con una página que explica lo que vende.</p></div>
+          <div><h4>El resultado</h4><p>Más solicitudes entrando sin depender de recomendaciones.</p></div>
+        </div>
+      </article>
+
+      <article class="story story--lead" data-reveal style="--rd:1">
+        <div class="story__id">
+          <h3 class="story__client">Atlante Concretos</h3>
+          <p class="story__industry">Materiales de construcción</p>
+        </div>
+
+        <dl class="story__metrics">
+          <div class="metric" data-placeholder>
+            <dt>Cotizaciones en línea</dt>
+            <dd class="metric__value" data-count="45" data-prefix="+" data-suffix="%">+0%</dd>
+          </div>
+          <div class="metric" data-placeholder>
+            <dt>Consultas directas</dt>
+            <dd class="metric__value" data-count="38" data-prefix="+" data-suffix="%">+0%</dd>
+          </div>
+          <div class="metric" data-placeholder>
+            <dt>Clientes nuevos</dt>
+            <dd class="metric__value" data-count="2.1" data-decimals="1" data-suffix="×">0×</dd>
+          </div>
+        </dl>
+
+        <div class="story__story">
+          <div><h4>El reto</h4><p>Un distribuidor con buena presencia local pero sin convertir visitantes en ventas en línea.</p></div>
+          <div><h4>Lo que hicimos</h4><p>Optimizamos su página para hacer el proceso de cotización simple y directo.</p></div>
+          <div><h4>El resultado</h4><p>Más consultas y cotizaciones desde nuevos clientes potenciales.</p></div>
+        </div>
+      </article>
+
+      <article class="story story--card" data-reveal style="--rd:2">
+        <h3 class="story__client">Teddy Store</h3>
+        <p class="story__industry">Retail</p>
+        <p class="story__line">Una marca con producto bueno y una presencia que no lo comunicaba.</p>
+        <p class="story__result" data-placeholder><b data-count="63" data-prefix="+" data-suffix="%">+0%</b> Alcance orgánico</p>
+      </article>
+
+      <article class="story story--card" data-reveal style="--rd:3">
+        <h3 class="story__client">WebStones</h3>
+        <p class="story__industry">Servicios digitales</p>
+        <p class="story__line">Un sitio que recibía visitas y no las convertía en conversaciones.</p>
+        <p class="story__result" data-placeholder><b data-count="2.4" data-decimals="1" data-suffix="×">0×</b> Contactos</p>
+      </article>
+
+      <article class="story story--card" data-reveal style="--rd:4">
+        <h3 class="story__client">Society Calistenia</h3>
+        <p class="story__industry">Fitness</p>
+        <p class="story__line">Comunidad fuerte en redes, cero rastro cuando alguien la buscaba en Google.</p>
+        <p class="story__result" data-placeholder><b data-count="91" data-prefix="+" data-suffix="%">+0%</b> Búsquedas por nombre</p>
+      </article>
+
+      <article class="story story--slot" data-reveal style="--rd:5">
+        <h3 class="story__client">La próxima historia</h3>
+        <p class="story__industry">Puede ser la tuya</p>
+        <p class="story__line">Tú también puedes transformar retos en resultados. Empieza por entender dónde estás parado.</p>
+        <a class="link-arrow" href="/diagnostico">Descubre cómo está tu negocio</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 06 · INSIGHTS ═══════════════
+     Retirada a pedido de Gus (2026-08-25): sin fuente de contenido real
+     ni forma de mantenerla actualizada todavía. Queda pendiente para más
+     adelante — ver LEEME.md. -->
+
+
+<!-- ═══════════════ 06b · CTA FINAL ═══════════════ -->
+<section class="close" id="cierre" data-field-mode="converge" data-inview>
+  <div class="wrap close__inner">
+
+    <div class="close__visual">
+      <svg class="converge" viewBox="0 0 460 460" role="img" aria-labelledby="cvTitle">
+        <title id="cvTitle">Los puntos de contacto convergiendo en una oportunidad</title>
+        <defs>
+          <radialGradient id="cvGlow">
+            <stop offset="0%"   stop-color="#2BFF95" stop-opacity=".2"></stop>
+            <stop offset="60%"  stop-color="#2BFF95" stop-opacity=".05"></stop>
+            <stop offset="100%" stop-color="#2BFF95" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <circle class="converge__halo" cx="230" cy="230" r="150" fill="url(#cvGlow)" aria-hidden="true"></circle>
+
+        <g class="converge__rings" aria-hidden="true">
+          <circle cx="230" cy="230" r="96"  style="--o:.34"></circle>
+          <circle cx="230" cy="230" r="150" style="--o:.18"></circle>
+        </g>
+
+        <g class="converge__links" aria-hidden="true">
+          <line x1="230"   y1="174" x2="230"   y2="90"></line>
+          <line x1="283.3" y1="212.7" x2="309.9" y2="185.9"></line>
+          <line x1="262.9" y1="275.3" x2="272.9" y2="308"></line>
+          <line x1="197.1" y1="275.3" x2="187.1" y2="308"></line>
+          <line x1="176.7" y1="212.7" x2="150.1" y2="185.9"></line>
+        </g>
+
+        <g class="converge__signals" aria-hidden="true">
+          <line style="--d:0s"    x1="230"   y1="174" x2="230"   y2="90"></line>
+          <line style="--d:.5s"   x1="283.3" y1="212.7" x2="309.9" y2="185.9"></line>
+          <line style="--d:1s"    x1="262.9" y1="275.3" x2="272.9" y2="308"></line>
+          <line style="--d:1.5s"  x1="197.1" y1="275.3" x2="187.1" y2="308"></line>
+          <line style="--d:2s"    x1="176.7" y1="212.7" x2="150.1" y2="185.9"></line>
+        </g>
+
+        <g class="converge__dots" aria-hidden="true">
+          <circle cx="230"   cy="80"  r="5"></circle>
+          <circle cx="372.7" cy="183.6" r="5"></circle>
+          <circle cx="318.2" cy="351.4" r="5"></circle>
+          <circle cx="141.8" cy="351.4" r="5"></circle>
+          <circle cx="87.3"  cy="183.6" r="5"></circle>
+        </g>
+
+        <g class="converge__core">
+          <circle class="converge__core-disc" cx="230" cy="230" r="56"></circle>
+          <circle class="converge__core-ring" cx="230" cy="230" r="56"></circle>
+          <text class="converge__core-label" x="230" y="236">OPORTUNIDAD</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="close__copy">
+      <p class="eyebrow">Ahora te toca a ti</p>
+      <h2 class="close__title">Encuentra las oportunidades que otros ya están viendo.</h2>
+      <p class="close__lead">Tu negocio está siendo buscado, comparado y evaluado todos los días. Nosotros te ayudamos a entender qué está pasando y dónde puedes crecer.</p>
+      <a class="btn btn--primary btn--lg" href="/diagnostico">Evalúa tu presencia actual</a>
+      <p class="close__note">En 3 minutos.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="footer">
+  <div class="wrap">
+
+    <div class="foot__top">
+      <div class="foot__brandbox">
+        <a class="nav__brand foot__logo" href="#top">IONN<span>Consulting</span></a>
+        <p class="foot__pitch">Conectamos marca, web, Google, redes sociales e IA alrededor del crecimiento de tu negocio.</p>
+        <p class="foot__place">Monterrey, Nuevo León · México</p>
+      </div>
+
+      <nav class="foot__cols" aria-label="Pie de página">
+        <div class="foot__col">
+          <h2 class="foot__head">Soluciones</h2>
+          <ul>
+            <li><a href="#vision">Marca</a></li>
+            <li><a href="#vision">Web</a></li>
+            <li><a href="#vision">Google</a></li>
+            <li><a href="#vision">Redes sociales</a></li>
+            <li><a href="#vision">IA</a></li>
+          </ul>
+        </div>
+
+        <div class="foot__col">
+          <h2 class="foot__head">IONN</h2>
+          <ul>
+            <li><a href="#proceso">Nosotros</a></li>
+            <li><a href="#historias">Historias de crecimiento</a></li>
+            <li><a href="/diagnostico">Diagnóstico de crecimiento</a></li>
+          </ul>
+        </div>
+
+        <div class="foot__col">
+          <h2 class="foot__head">Legal</h2>
+          <ul>
+            <li><a href="#footer" data-pending>Aviso de privacidad</a></li>
+            <li><a href="#footer" data-pending>Términos</a></li>
+          </ul>
+        </div>
+
+        <div class="foot__col">
+          <h2 class="foot__head">Redes</h2>
+          <ul>
+            <li><a href="https://www.instagram.com/ionn_tech/" rel="noopener" target="_blank">Instagram</a></li>
+            <li><a href="#footer" data-pending>LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="foot__bottom">
+      <p class="foot__legal">© 2026 IONN Consulting. Todos los derechos reservados.</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ═══════════════ CANALES · Chat IA + WhatsApp ═══════════════ -->
+<div class="dock" id="dock">
+
+  <button class="dock__btn dock__btn--chat" id="chatToggle" type="button"
+          aria-expanded="false" aria-controls="chatPanel"
+          data-tip="¿Tienes una pregunta sobre tu negocio?">
+    <!-- Burbuja con chispa: se lee como "aquí se conversa" y como "responde con IA".
+         Alternativas listas para intercambiar, sustituyendo solo los dos <path> de adentro:
+         · señal   <circle class="is-fill" cx="8.4" cy="10.6" r="1.05" opacity=".45"/><circle class="is-fill" cx="12" cy="10.6" r="1.35"/><circle class="is-fill" cx="15.6" cy="10.6" r="1.05" opacity=".45"/>
+         · marca   <text class="dock__word" x="12" y="13.4">IONN</text>
+         · núcleo  <circle class="is-fill" cx="12" cy="12" r="2.2"/><path d="M15.6 8.4 a5.1 5.1 0 0 1 0 7.2"/><path d="M8.4 15.6 a5.1 5.1 0 0 1 0 -7.2"/> -->
+    <svg class="dock__glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 10.6 a7 6.2 0 0 1 16 0 a7 6.2 0 0 1 -8 6.2 l-4.2 3 v-3.4 a6.6 6 0 0 1 -3.8 -5.8 z"></path>
+      <path class="is-fill" d="M12 6.6 l.85 2.55 2.55 .85 -2.55 .85 -.85 2.55 -.85 -2.55 -2.55 -.85 2.55 -.85 z"></path>
+    </svg>
+    <span class="dock__close-glyph" aria-hidden="true"></span>
+    <span class="u-sr">Abrir el asesor digital de IONN</span>
+  </button>
+
+  <a class="dock__btn dock__btn--wa" id="waBtn"
+     href="https://wa.me/522296478519?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20IONN%20y%20las%20oportunidades%20de%20crecimiento%20de%20mi%20negocio."
+     target="_blank" rel="noopener"
+     data-tip="Habla con nuestro equipo">
+    <svg class="dock__glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4.6 19.4 L5.9 15.6 A7.6 7.6 0 1 1 8.9 18.4 Z"></path>
+      <path d="M9.3 9.1 c.9 2.6 3 4.7 5.6 5.6 l1.2 -1.4 2 .9 -.4 2 c-3.9 .4 -9.4 -5.1 -9 -9 l2 -.4 .9 2 z"></path>
+    </svg>
+    <span class="dock__label">WhatsApp</span>
+  </a>
+
+</div>
+
+<!-- Panel de conversación -->
+<section class="chat" id="chatPanel" hidden role="dialog" aria-labelledby="chatTitle">
+
+  <header class="chat__head">
+    <div>
+      <h2 class="chat__title" id="chatTitle">IONN AI</h2>
+      <p class="chat__sub">Hablemos sobre tu negocio.</p>
+    </div>
+    <button class="chat__close" id="chatClose" type="button">
+      <span aria-hidden="true"></span>
+      <span class="u-sr">Cerrar la conversación</span>
+    </button>
+  </header>
+
+  <div class="chat__log" id="chatLog" aria-live="polite" aria-atomic="false">
+    <div class="msg msg--ai">
+      <p>Hola.</p>
+      <p>Puedo ayudarte a entender oportunidades en marca, web, Google, redes sociales e IA.</p>
+      <p>También puedo ayudarte a descubrir si vale la pena hacer un diagnóstico de tu presencia digital.</p>
+    </div>
+  </div>
+
+  <div class="chat__suggest" id="chatSuggest">
+    <button type="button" data-q="¿Por qué mi página no genera clientes?">¿Por qué mi página no genera clientes?</button>
+    <button type="button" data-q="¿Cómo puedo aparecer más en Google?">¿Cómo puedo aparecer más en Google?</button>
+    <button type="button" data-q="¿Mi marca comunica lo que quiero?">¿Mi marca comunica lo que quiero?</button>
+    <button type="button" data-q="¿Qué debería mejorar primero?">¿Qué debería mejorar primero?</button>
+    <button type="button" data-q="¿Cómo puede ayudarme la IA?">¿Cómo puede ayudarme la IA?</button>
+    <button type="button" data-q="¿Cómo puedo saber dónde están mis oportunidades?">¿Cómo puedo saber dónde están mis oportunidades?</button>
+  </div>
+
+  <form class="chat__form" id="chatForm" autocomplete="off">
+    <label class="u-sr" for="chatInput">Escribe tu pregunta</label>
+    <input class="chat__input" id="chatInput" type="text" name="q"
+           placeholder="Escribe tu pregunta..." maxlength="700">
+    <button class="chat__send" id="chatSend" type="submit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 h13 M12 6.5 L17.8 12 L12 17.5"></path></svg>
+      <span class="u-sr">Enviar la pregunta</span>
+    </button>
+  </form>
+
+  <p class="chat__foot">Respuestas orientativas. Para hablar con una persona del equipo, usa WhatsApp.</p>
+
+</section>
+
+<!--
+  Base de conocimiento del modo guiado.
+  Se usa cuando /api/chat no está disponible (sin llave configurada, sin
+  conexión, o abriendo el archivo con doble clic). Está en HTML para que
+  puedas editar cualquier respuesta sin tocar el JavaScript.
+  data-bridge="1" marca las respuestas que pueden llevar al diagnóstico.
+-->
+<template id="chatKB">
+
+  <article data-q="¿Por qué mi página no genera clientes?" data-bridge="1">
+    <p>Casi siempre no es un problema de tráfico, es un problema de decisión. La gente entra, no entiende en diez segundos qué haces ni por qué tú, y se va.</p>
+    <p>Las tres causas que más vemos: la propuesta está escrita hacia adentro y no para el cliente, no hay un siguiente paso claro, y el celular muestra una versión distinta de la que tú ves en tu computadora.</p>
+    <p>¿A qué se dedica tu negocio? Con eso te digo por dónde empezaría a revisar.</p>
+  </article>
+
+  <article data-q="¿Cómo puedo aparecer más en Google?">
+    <p>Depende de qué tan cerca esté la persona de comprarte, y son dos trabajos distintos.</p>
+    <p>Si te buscan por tu nombre y no apareces, el problema está en tu ficha de negocio y en la información básica que Google tiene de ti. Eso se arregla rápido y suele dar resultados en semanas.</p>
+    <p>Si buscan lo que vendes sin conocerte, el problema es que tu página no habla de eso con las palabras que ellos usan. Eso toma más tiempo. ¿Cuál de los dos te está pasando?</p>
+  </article>
+
+  <article data-q="¿Mi marca comunica lo que quiero?">
+    <p>Hay una prueba rápida: pregúntale a tres clientes qué dirían que haces, con sus palabras. Si las tres respuestas son distintas entre sí, o distintas de la tuya, ahí está la brecha.</p>
+    <p>Una marca no es el logo. Es lo que alguien puede repetir de ti cuando no estás presente.</p>
+  </article>
+
+  <article data-q="¿Qué debería mejorar primero?" data-bridge="1">
+    <p>Lo que esté más cerca de la decisión del cliente.</p>
+    <p>Si ya te encuentran pero no te contactan, no inviertas en más visibilidad: arregla lo que pasa cuando llegan. Si nadie te encuentra, da igual qué tan buena esté tu página.</p>
+    <p>Para decirte cuál es tu caso tendría que ver tus puntos de contacto.</p>
+  </article>
+
+  <article data-q="¿Cómo puede ayudarme la IA?">
+    <p>En dos frentes distintos.</p>
+    <p>Hacia adentro, para quitarte trabajo repetitivo: responder, dar seguimiento, ordenar información que hoy vive en la cabeza de alguien.</p>
+    <p>Hacia afuera, para que los sistemas que hoy recomiendan negocios entiendan qué haces. Cada vez más gente pregunta antes de buscar, y eso depende de algo poco glamoroso: que tu información sea clara y consistente en todos lados.</p>
+  </article>
+
+  <article data-q="¿Cómo puedo saber dónde están mis oportunidades?" data-bridge="1">
+    <p>Viendo tu negocio como lo ve alguien que todavía no te conoce: qué encuentra en Google, qué entiende de tu página, qué le dicen tus redes, y si todo eso cuenta la misma historia.</p>
+    <p>Eso es exactamente lo que hace el diagnóstico.</p>
+  </article>
+
+  <article data-q="__fallback__">
+    <p>Ahorita estoy en modo guiado y solo puedo responder las preguntas de arriba.</p>
+    <p>Si quieres platicar tu caso concreto, escríbele a nuestro equipo por WhatsApp. Y si prefieres empezar por entender dónde estás parado, el diagnóstico es el camino corto.</p>
+  </article>
+
+</template>
+
+<script is:inline defer src="/assets/js/bg-video.js"></script>
+<script is:inline defer src="/assets/js/field.js"></script>
+<script is:inline defer src="/assets/js/main.js"></script>
+<!-- <script is:inline defer src="/assets/js/hero-pulsos.js"></script> -->
+<script is:inline defer src="/assets/js/chat.js"></script>
+
+</Base>
