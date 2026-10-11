@@ -7,3 +7,7 @@ dist/
 .DS_Store
 .vscode/
 .idea/
+
+node_modules
+.env
+tina/__generated__

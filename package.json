@@ -4,13 +4,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.5",
+    "@tinacms/astro": "^0.7.1",
     "@tinacms/cli": "^4.0.1",
     "astro": "^5.14.0",
     "tinacms": "^3.14.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
